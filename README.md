@@ -6,7 +6,7 @@
 
 ## Lab Diagram
 
-<img src="01-EDR-diagram.png" width="500" height="321"> <br>
+<img src="01-EDR-diagram.png" width="600" height="385"> <br>
 
 ## 1. LimaCharlie Setup
 
