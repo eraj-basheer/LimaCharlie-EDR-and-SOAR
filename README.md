@@ -40,7 +40,6 @@ Use git to clone Mimikatz from the (offical repositiory)[https://github.com/Parr
 ``` 
 privilege::debug
 ```
-<br>
 
 ```
 sekurlsa::logonPasswords
