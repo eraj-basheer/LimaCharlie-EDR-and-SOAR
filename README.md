@@ -26,6 +26,7 @@ This lab involved configurating a detection rule in LimaCharlie (EDR) in order t
 - Create Detection and Response Rule for Mimikatz
 - Create Slack account
 - Create a new channel in Slack for alerts
+- 
 - Create Tines account
 - Add LimaCharlie and Slack as Connectors in Tines
 - Create new workflow in Tines
@@ -42,24 +43,84 @@ After creating a LimaCharlie account, create an organisation and enter in the re
 
 ## 2. Mimikatz Detection 
 
-Once the sensor is attached, live logs generated from the machine can be viewed by clicking the machine and then selecting the Timeline page.
 
 In order to build the Detection and Response rule, we first need to generate telemetry related to Mimikatz. 
 
-I used git to download Mimikatz from the (offical repositiory) [https://github.com/ParrotSec/mimikatz.git]
+Use git to clone Mimikatz from the (offical repositiory)[https://github.com/ParrotSec/mimikatz.git]. After running Mimikatz, run the following commands:
+
+``` 
+privilege::debug
+```
+
+```
+sekurlsa::logonPasswords
+```
+
+<img src="05-mimikatz-download.png" width="500" height="124"> 
+<img src="06-mimikatz-testing.png" width="500" height="371"> 
+
+The event logs generated from running Mimikatz can be viewed by clicking the sensor attached earlier and then selecting the Timeline page. Search for Mimikatz to find related logs.
+
+<img src="07-mimikatz-event.png" width="500" height="217"> 
+
+Based on the information gathered from the mimikatz event, we can build the Detection and Response rule. Open the detections page. Following LimaCharlie documentation, create and enable the following rule:
+
+```
+events:
+  - NEW_PROCESS
+  - EXISTING_PROCESS
+op: and
+rules:
+  - op: is windows
+  - op: or
+    rules:
+      - case sensitive: false
+        op: ends with
+        path: event/FILE_PATH
+        value: mimikatz.exe
+
+      - case sensitive: false
+        op: contains
+        path: event/COMMAND_LINE
+        value: mimikatz
+
+- action: report
+  metadata:
+    author: Eraj Basheer
+    description: Detects potential Mimikatz execution
+    falsepositives:
+      - Security testing and lab simulations
+    level: high
+    tags:
+      - attack.credential_access
+      - attack.t1003
+  name: Credential Dumper - Mimikatz
+
+```
 
 
- - run mimikatz
- - inspect log
- - create mimikatz detection alert
- - test alert?
 
-## 3. Tines Automation
+## 4. Tines Automation
 
-- create tines account
-- create slack account and connect slack to tines
-- take ss of ai making the automation
+### Slack Setup 
+
+In order to recieve notifications in regards to alerts, setup of a Slack account is required. Create a Slack account and create a new channel named Alerts.
+<img src="08-slack-channel.png" width="436" height="653"> 
+
+### Tines Setup
+
+Create a Tines account. On the connectors page, add Slack and LimaCharlie as connectors. Connect the Alerts channel using the Channel ID and LimaCharlie using the Organisation JWT.
+
+<img src="09-connectors-page.png" width="500" height="116"> 
+<img src="10-slack-connector.png" width="500" height="355"> 
+<img src="11-limacharlie-connector.png" width="500" height="460"> 
+
+
+## Tines Workflow
+
+
 
 ## 4. Testing
+
 
 ## Conclusion
