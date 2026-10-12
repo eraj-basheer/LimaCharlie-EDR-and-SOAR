@@ -34,10 +34,7 @@ This lab involved configurating a detection rule in LimaCharlie (EDR) in order t
 
 ## 1. LimaCharlie Setup
 
- - setup limacharlie org
- - connect windows machine sensor
-
-After creating a LimaCharlie account, create an organisation and enter the relevant details. In order to attach the Windows 10 virtual machine as a sensor, click Add Sensor (on the Sensors page) and select the Windows sensor type. Select the organisation's Installation Key and run the powershell command given to add the sensor.
+After creating a LimaCharlie account, create an organisation and enter in the relevant details. In order to attach the Windows 10 virtual machine as a sensor, click Add Sensor (on the Sensors page) and select the Windows sensor type. Select the organisation's Installation Key and run the powershell command given to add the sensor.
 
 <img src="02-limacharlie-organisation.png" width="500" height="186"> 
 <img src="03-sensor-installation.png" width="500" height="349"> 
@@ -45,7 +42,13 @@ After creating a LimaCharlie account, create an organisation and enter the relev
 
 ## 2. Mimikatz Detection 
 
-Once the sensor is attached, live logs generated from the machine can be viewed by clicking the machine and then selecting the Timeline page. In order to create a Mimikatz detection and response rule, we have to 
+Once the sensor is attached, live logs generated from the machine can be viewed by clicking the machine and then selecting the Timeline page.
+
+In order to build the Detection and Response rule, we first need to generate telemetry related to Mimikatz. 
+
+I used git to download Mimikatz from the [offical repositiory] (https://github.com/ParrotSec/mimikatz.git) 
+
+
  - run mimikatz
  - inspect log
  - create mimikatz detection alert
