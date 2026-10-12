@@ -36,10 +36,11 @@ After creating a LimaCharlie account, create an organisation and enter in the re
 In order to build the Detection and Response rule, we first need to generate telemetry related to Mimikatz. 
 
 Use git to clone Mimikatz from the (offical repositiory)[https://github.com/ParrotSec/mimikatz.git]. After running Mimikatz, run the following commands:
-
+<br>
 ``` 
 privilege::debug
 ```
+<br>
 
 ```
 sekurlsa::logonPasswords
