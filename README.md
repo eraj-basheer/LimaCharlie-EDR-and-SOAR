@@ -113,7 +113,7 @@ In order to recieve notifications in regards to alerts, setup of a Slack account
 
 Create a Tines account. On the connectors page, add Slack and LimaCharlie as connectors. Connect the Alerts channel using the Channel ID and LimaCharlie using the Organisation JWT.
 
-<img src="09-connectors-page.png" width="600" height="139"> 
+<img src="09-connectors-page.png" width="700" height="162"> 
 <img src="10-slack-connector.png" width="450" height="320"> 
 <img src="11-limacharlie-connector.png" width="500" height="460"> 
 
