@@ -19,7 +19,6 @@ This lab involved configurating a detection rule in LimaCharlie (EDR) in order t
 <img src="01-EDR-diagram.png" width="600" height="385"> <br>
 
 --- 
-<br>
 
 ## 1. LimaCharlie Setup
 
