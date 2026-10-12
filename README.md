@@ -116,7 +116,9 @@ Create a Tines account. On the connectors page, add Slack and LimaCharlie as con
 
 To create the SOAR playbook, select personal workflows in Tines and describe the automation process to the Tines 3B AI tool. Attach the project diagram and use the following prompt:
 
-``` Create a web hook from LimaCharlie to Tines with details of a detection, that then sends a message to Slack with the same details. Then create a web page message that gets sent to Slack that allows the machine to be isolated in LimaCharlie ```
+``` 
+Create a web hook from LimaCharlie to Tines with details of a detection, that then sends a message to Slack with the same details. Then create a web page message that gets sent to Slack that allows the machine to be isolated in LimaCharlie
+```
 
 <img src="12-tines-workflow.png" width="500" height="243">
 <br>
