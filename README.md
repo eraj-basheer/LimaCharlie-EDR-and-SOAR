@@ -105,7 +105,7 @@ rules:
 ### Slack Setup 
 
 In order to recieve notifications in regards to alerts, setup of a Slack account is required. Create a Slack account and create a new channel named Alerts.
-<img src="08-slack-channel.png" width="436" height="653"> 
+<img src="08-slack-channel.png" width="200" height="300"> 
 
 ### Tines Setup
 
