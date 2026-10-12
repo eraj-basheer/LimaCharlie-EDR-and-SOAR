@@ -25,6 +25,9 @@ This lab involved configurating a detection rule in LimaCharlie (EDR) in order t
 
 After creating a LimaCharlie account, create an organisation and enter in the relevant details. In order to attach the Windows 10 virtual machine as a sensor, click Add Sensor (on the Sensors page) and select the Windows sensor type. Select the organisation's Installation Key and run the powershell command given to add the sensor.
 
+
+<br>
+
 <img src="02-limacharlie-organisation.png" width="500" height="186"> 
 <img src="03-sensor-installation.png" width="500" height="349"> 
 <img src="04-sensor-page.png" width="500" height="200"> 
@@ -33,7 +36,7 @@ After creating a LimaCharlie account, create an organisation and enter in the re
 ## 2. Mimikatz Detection 
 
 
-In order to build the Detection and Response rule, we first need to generate telemetry related to Mimikatz. 
+In order to build and test the Detection and Response rule, we first need to generate telemetry related to Mimikatz. 
 
 Use git to clone Mimikatz from the [offical repositiory](https://github.com/ParrotSec/mimikatz.git). After running Mimikatz, run the following commands:
 <br>
@@ -76,6 +79,11 @@ rules:
         path: event/COMMAND_LINE
         value: mimikatz
 
+      - case sensitive: false
+        op: is
+        path: event/HASH
+        value: '1ee3d7c80d075d64f97d04d036e558043f2f6bc959c87cd5b0a6d53b96b96a0f'
+
 - action: report
   metadata:
     author: Eraj Basheer
@@ -92,6 +100,12 @@ rules:
 <br>
 
 
+The detection and response rule can then be tested against the telemetry generated earlier. 
+
+<img src="8-rule-testing.png" width="500" height="315"> 
+
+
+
 ## 4. Tines Automation
 
 ### Slack Setup 
@@ -99,17 +113,17 @@ rules:
 In order to recieve notifications in regards to alerts, setup of a Slack account is required. Create a Slack account and create a new channel named Alerts.
 
 
-<img src="08-slack-channel.png" width="200" height="300"> 
+<img src="09-slack-channel.png" width="200" height="300"> 
 <br>
 
 ### Tines Setup
 
 Create a Tines account. On the connectors page, add Slack and LimaCharlie as connectors. Connect the Slack Alerts channel using the Channel ID and connect LimaCharlie using the Organisation JWT.
 
-<img src="09-connectors-page.png" width="700" height="162"> 
-<img src="10-slack-connector.png" width="450" height="320"> 
+<img src="10-connectors-page.png" width="700" height="162"> 
+<img src="11-slack-connector.png" width="450" height="320"> 
 
-<img src="11-limacharlie-connector.png" width="500" height="460"> 
+<img src="12-limacharlie-connector.png" width="500" height="460"> 
 
 <br>
 
@@ -121,12 +135,12 @@ To create the SOAR playbook, select personal workflows in Tines and describe the
 
 
 <br>
-<img src="12-tines-workflow.png" width="800" height="389">
+<img src="13-tines-workflow.png" width="800" height="389">
 <br>
 
 ## 4. Testing
 
-<img src="13-automated-slack-message.png" width="500" height="315"> 
-<img src="14-isolation-page.png" width="500" height="394"> 
+<img src="14-automated-slack-message.png" width="500" height="315"> 
+<img src="15-isolation-page.png" width="500" height="394"> 
 
 ## Conclusion
