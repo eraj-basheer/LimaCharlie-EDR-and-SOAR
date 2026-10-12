@@ -52,7 +52,7 @@ sekurlsa::logonPasswords
 
 The event logs generated from running Mimikatz can be viewed by clicking the sensor attached earlier and then selecting the Timeline page. Search for Mimikatz to find related logs.
 
-<img src="07-mimikatz-event.png" width="500" height="217"> 
+<img src="07-mimikatz-event.png" width="700" height="304"> 
 <br>
 
 Based on the information gathered from the mimikatz event, we can build the Detection and Response rule. Open the detections page. Following LimaCharlie documentation, create and enable the following rule:
