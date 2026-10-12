@@ -46,7 +46,7 @@ Once the sensor is attached, live logs generated from the machine can be viewed 
 
 In order to build the Detection and Response rule, we first need to generate telemetry related to Mimikatz. 
 
-I used git to download Mimikatz from the [offical repositiory] (https://github.com/ParrotSec/mimikatz.git) 
+I used git to download Mimikatz from the (offical repositiory) [https://github.com/ParrotSec/mimikatz.git]
 
 
  - run mimikatz
