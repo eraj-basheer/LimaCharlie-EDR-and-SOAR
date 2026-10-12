@@ -45,6 +45,7 @@ privilege::debug
 ```
 sekurlsa::logonPasswords
 ```
+<br>
 
 <img src="05-mimikatz-download.png" width="500" height="124"> 
 <img src="06-mimikatz-testing.png" width="500" height="371"> 
