@@ -140,8 +140,9 @@ To create the SOAR playbook, select personal workflows in Tines and describe the
 
 ## 4. Testing
 
+https://github.com/user-attachments/assets/ad1851ab-9e94-4e16-b6c4-e11b43fc1eba
 
-
+<br>
 
 
 ## Conclusion
