@@ -118,21 +118,48 @@ In order to recieve notifications in regards to alerts, setup of a Slack account
 
 ### Tines Setup
 
-Create a Tines account. On the connectors page, add Slack and LimaCharlie as connectors. Connect the Slack Alerts channel using the Channel ID and connect LimaCharlie using the Organisation JWT.
+Create a Tines account. On the connectors page, add Slack and LimaCharlie as connectors. Connect the Slack Alerts channel using the Channel ID.
+
+<img src="10-slack-connector.png" width="450" height="320"> 
+<br>
+
+For the LimaCharlie connector, API configuration will be required. On LimaCharlie, go to Access Management and then select Rest API. Create a new API Key and scroll down to the sensor premission. Select all read and write functions. Give the API Key a name and press Create. Copy the API Key and do not share anywhere publicly.
+
+<img src="11-rest-api-page.png" width="700" height="162"> 
+<br>
+
+In Tines, on Connectors page, add a custom API Key for the LimaCharlie connector. Configure settings following the table below:
+
+
+Token / exchange URL: https://jwt.limacharlie.io
+Method: POST, with the body form-encoded (application/x-www-form-urlencoded)
+Body parameters: oid  | <OID> and secret = your LimaCharlie API key
+Token field in the response: jwt
+How the token is sent: Authorization: Bearer <token>
+Expiry: about 1 hour (3600 seconds), if it asks
+
+
+Name the sensor LimaCharlie and choose Token Exchange for the authentication method. The Token URL should be 'https://jwt.limacharlie.io'. Select Form encoded from the Body format drop-down menu and add 2 parameters for the body. Add OID and the generated API Key. 
+
 
 <img src="10-connectors-page.png" width="700" height="162"> 
-<img src="11-slack-connector.png" width="450" height="320"> 
 
-<img src="12-limacharlie-connector.png" width="500" height="460"> 
 
 <br>
 
-## Tines Workflow
+### Tines Workflow
 
 To create the SOAR playbook, select personal workflows in Tines and describe the automation process to the Tines 3B AI tool. Attach the project diagram and use the following prompt:
 
+provide link to connect output 
+send slack message with detection 
+isolate 
+
 ``` Create a web hook from LimaCharlie to Tines with details of a detection, that then sends a message to Slack with the same details. Then create a web page message that gets sent to Slack that allows the machine to be isolated in LimaCharlie. ```
 
+webhook to send detections
+Tines will provide link. on limacharlie page go to outputs -> detection. create output 
+this provides tines with dectection details 
 
 <br>
 <img src="13-tines-workflow.png" width="800" height="389">
@@ -146,3 +173,6 @@ https://github.com/user-attachments/assets/ad1851ab-9e94-4e16-b6c4-e11b43fc1eba
 
 
 ## Conclusion
+
+
+
