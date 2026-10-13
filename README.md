@@ -140,12 +140,8 @@ To create the SOAR playbook, select personal workflows in Tines and describe the
 
 ## 4. Testing
 
-<img src="14-automated-slack-message.png" width="500" height="315"> 
-<img src="15-isolation-page.png" width="500" height="394"> 
 
 
-
-https://github.com/user-attachments/assets/80eb6660-510d-4fa9-9eaf-3b601eb958dc
 
 
 ## Conclusion
