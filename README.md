@@ -29,7 +29,7 @@ After creating a LimaCharlie account, create an organisation and enter in the re
 
 <img src="02-limacharlie-organisation.png" width="500" height="186"> 
 <img src="03-sensor-installation.png" width="500" height="349"> 
-<img src="04-sensor-page.png" width="500" height="200"> 
+<img src="04-sensor-page.png" width="600" height="200"> 
 <br>
 
 ## 2. Mimikatz Detection 
