@@ -186,5 +186,8 @@ https://github.com/user-attachments/assets/ad1851ab-9e94-4e16-b6c4-e11b43fc1eba
 
 ## Conclusion
 
+This lab demonstrated how LimaCharlie EDR and Tines SOAR can work together to detect Mimikatz execution and automate incident response. A detection rule was created to identify credential theft, while Tines automated machine isolation and sent alerts to Slack. These skills illustrate how security tools can be integrated to improve threat detection and reduce response times.
+
+
 
 
