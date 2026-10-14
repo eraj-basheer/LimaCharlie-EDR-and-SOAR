@@ -109,7 +109,7 @@ The detection and response rule can then be tested against the telemetry generat
 
 ### Slack Setup 
 
-In order to recieve notifications in regards to alerts, setup of a Slack account is required. Create a Slack account and create a new channel named Alerts.
+To receive notifications regarding endpoint detections, setup of a Slack account is required. Create a Slack account and create a new channel named Alerts.
 
 
 <img src="09-slack-channel.png" width="200" height="300"> 
@@ -125,7 +125,7 @@ Create a Tines account. On the connectors page, add Slack and LimaCharlie as con
 
 #### LimaCharlie Connector:
 
-For the LimaCharlie connector, API configuration will be required. On LimaCharlie, go to Access Management and then select Rest API. Create a new API Key and scroll down to the sensor premission. Select all read and write functions. Give the API Key a name and press Create. Copy the API Key and do not share anywhere publicly.
+For the LimaCharlie connector, API configuration will be required. On LimaCharlie, go to Access Management and then select Rest API. Create a new API Key and scroll down to the sensor permission. Select all read and write functions. Give the API Key a name and press Create. Copy the API Key and do not share anywhere publicly.
 
 <img src="11-rest-api-page.png" width="700" height="358"> 
 
@@ -162,11 +162,11 @@ Test and confirm both connectors are active.
 
 To create the SOAR playbook, select personal workflows in Tines and describe the automation process to the Tines 3B AI tool. Attach the project diagram and use the following prompt:
 
-``` Using the EDR diagram provided as reference, first create a Webhook from LimaCharlie to Tines and provide the destination host link. I will register an output linked to the address provided which will recieve detections from LimaCharlie. If a detection occurs, isolate the machine automatically and send a message to Slack. The message must be sent to the 'alerts' channel and must contain the alert details mentioned in the EDR Diagram. The slack message must also contain a webpage message that confirms the machine has been automatically isolated in LimaCharlie. ```
+``` Using the EDR diagram provided as reference, first create a Webhook from LimaCharlie to Tines and provide the destination host link. I will register an output linked to the address provided which will receive detections from LimaCharlie. If a detection occurs, isolate the machine automatically and send a message to Slack. The message must be sent to the 'alerts' channel and must contain the alert details mentioned in the EDR Diagram. The slack message must also contain a webpage message that confirms the machine has been automatically isolated in LimaCharlie. ```
 
 #### Ouput Configuration: 
 
-In order for Tines to recieve detections from LimaCharlie, we first have to register an Output in LimaCharlie. Go to the Outputs page, add a new output and select Detections as the Output Stream. Select Tines as the destination, give the output a name and paste the destination host link provided by Tines. On the samples page, in order to generate a detection sample, re-run Mimikatz on the Windows 10 endpoint. Once the detection is recieved, save the Output. 
+In order for Tines to recieve detections from LimaCharlie, we first must register an Output in LimaCharlie. Go to the Outputs page, add a new output and select Detections as the Output Stream. Select Tines as the destination, give the output a name and paste the destination host link provided by Tines. On the samples page, to generate a detection sample, re-run Mimikatz on the Windows 10 endpoint. Once the detection is received, save the Output. 
 
 <img src="13-outputs-page.png" width="600" height="131">
 <br>
