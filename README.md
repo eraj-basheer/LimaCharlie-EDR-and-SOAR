@@ -37,7 +37,7 @@ After creating a LimaCharlie account, create an organisation and enter in the re
 
 In order to build and test the Detection and Response rule, we first need to generate telemetry related to Mimikatz. 
 
-In a Windows10 virtual machine environment, disable the antivirus and then use git to clone Mimikatz from the [offical repositiory](https://github.com/ParrotSec/mimikatz.git). After running Mimikatz, run the following commands:
+In a Windows 10 virtual machine environment, disable the antivirus and then use git to clone Mimikatz from the [offical repositiory](https://github.com/ParrotSec/mimikatz.git). After running Mimikatz, run the following commands:
 <br>
 ``` 
 privilege::debug
