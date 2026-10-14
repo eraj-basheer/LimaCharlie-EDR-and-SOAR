@@ -16,7 +16,7 @@ This lab involved configurating a detection rule in LimaCharlie (EDR) in order t
 
 ## Lab Diagram
 
-<img src="01-EDR-diagram.png" width="600" height="385"> 
+<img src="01-EDR-SOAR-diagram.png" width="500" height="583"> 
 
 --- 
 
@@ -101,7 +101,7 @@ rules:
 
 The detection and response rule can then be tested against the telemetry generated earlier. 
 
-<img src="8-rule-testing.png" width="500" height="315"> 
+<img src="8-rule-testing.png" width="500" height="213"> 
 
 
 
@@ -119,12 +119,12 @@ In order to recieve notifications in regards to alerts, setup of a Slack account
 
 Create a Tines account. On the connectors page, add Slack and LimaCharlie as connectors. Connect the Slack Alerts channel using the Channel ID.
 
-<img src="10-slack-connector.png" width="450" height="320"> 
+<img src="10-slack-connector.png" width="500" height="355"> 
 <br>
 
 For the LimaCharlie connector, API configuration will be required. On LimaCharlie, go to Access Management and then select Rest API. Create a new API Key and scroll down to the sensor premission. Select all read and write functions. Give the API Key a name and press Create. Copy the API Key and do not share anywhere publicly.
 
-<img src="11-rest-api-page.png" width="700" height="162"> 
+<img src="11-rest-api-page.png" width="500" height="255"> 
 <br>
 
 In Tines, on Connectors page, add a custom API Key for the LimaCharlie connector. Configure settings following the table below:
@@ -157,13 +157,13 @@ To create the SOAR playbook, select personal workflows in Tines and describe the
 
 In order for Tines to recieve detections from LimaCharlie, we first have to register an Output in LimaCharlie. Go to the Outputs page, add a new output and select Detections as the Output Stream. Select Tines as the destination, give the output a name and paste the destination host link provided by Tines. On the samples page, in order to generate a detection sample, re-run Mimikatz on the Windows 10 endpoint. Once the detection is recieved, save the Output. 
 
-<img src="13-tines-workflow.png" width="800" height="389">
+<img src="13-outputs-page.png" width="600" height="131">
 <br>
 
 Follow steps provided by the 3B AI tool and push the draft live once finalised. Once published, test if the automation process is functioning as expected.
 
 <br>
-<img src="14-tines-workflow.png" width="800" height="389">
+<img src="14-tines-workflow.png" width="800" height="388">
 <br>
 
 ## 4. Testing
