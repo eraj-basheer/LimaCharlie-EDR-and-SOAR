@@ -101,7 +101,7 @@ rules:
 
 The detection and response rule can then be tested against the telemetry generated earlier. 
 
-<img src="8-rule-testing.png" width="500" height="213"> 
+<img src="08-rule-testing.png" width="500" height="213"> 
 
 
 
