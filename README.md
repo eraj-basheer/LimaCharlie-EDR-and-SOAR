@@ -130,19 +130,22 @@ For the LimaCharlie connector, API configuration will be required. On LimaCharli
 
 In Tines, on Connectors page, add a custom API Key for the LimaCharlie connector. Configure settings following the table below:
 
+| Field | Input |
+|---|---|
+| Name | LimaCharlie |
+| Allowed for URLs starting with | api.limacharlie.io |
+| Authentication method | Token exchange |
+| Token URL | `https://jwt.limacharlie.io` |
+| Body Format | Form encoded | 
+| Body | oid  `<Your OID>`  <br> secret  `<API Key>` |
+| Token path | jwt |
+| Token lifetime | 3000 |
+| Send the token as | Authorization: Bearer token | 
+| Test URL | `https://api.limacharlie.io/v1/sensors/<Your OID>` |
 
-Token / exchange URL: https://jwt.limacharlie.io
-Method: POST, with the body form-encoded (application/x-www-form-urlencoded)
-Body parameters: oid  | <OID> and secret = your LimaCharlie API key
-Token field in the response: jwt
-How the token is sent: Authorization: Bearer <token>
-Expiry: about 1 hour (3600 seconds), if it asks
 
 
-Name the sensor LimaCharlie and choose Token Exchange for the authentication method. The Token URL should be 'https://jwt.limacharlie.io'. Select Form encoded from the Body format drop-down menu and add 2 parameters for the body. Add OID and the generated API Key. 
-
-
-<img src="10-connectors-page.png" width="700" height="162"> 
+<img src="12-connectors-page.png" width="700" height="162"> 
 
 
 <br>
@@ -155,14 +158,21 @@ provide link to connect output
 send slack message with detection 
 isolate 
 
-``` Create a web hook from LimaCharlie to Tines with details of a detection, that then sends a message to Slack with the same details. Then create a web page message that gets sent to Slack that allows the machine to be isolated in LimaCharlie. ```
 
-webhook to send detections
-Tines will provide link. on limacharlie page go to outputs -> detection. create output 
-this provides tines with dectection details 
+
+``` 
+Based on the diagram provided, first create a Webhook from LimaCharlie to Tines and provide the destination host link. I will register an output linked to the address provided which will recieve detections from LimaCharlie. Using the detection details, send a message to the Slack channel named 'alerts'. The message must contain the details mentioned in the EDR Diagram. The slack message must also contain a webpage message that confirms the machine has been automatically isolated in LimaCharlie. 
+
+
+with details of a detection, that then sends a message to Slack with the same details. Then create a web page message that gets sent to Slack that allows the machine to be isolated in LimaCharlie.
+```
+In order for Tines to recieve detections from LimaCharlie, we first have to register an Output in LimaCharlie. Go to the Outputs page, add a new output and select Detections as the Output Stream. Select Tines as the destination, give the output a name and paste the destination host link provided by Tines. On the samples page, in order to generate a detection sample, re-run Mimikatz on the Windows 10 endpoint. Once the detection is recieved, save the Output. 
+
+<img src="13-tines-workflow.png" width="800" height="389">
+
 
 <br>
-<img src="13-tines-workflow.png" width="800" height="389">
+<img src="14-tines-workflow.png" width="800" height="389">
 <br>
 
 ## 4. Testing
